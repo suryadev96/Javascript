@@ -103,7 +103,7 @@ console.log(x,y);
 
 const averageAge = (ageSuryaDev + ageBhoomi) / 2;
 console.log(ageSuryaDev , ageBhoomi, averageAge);
-*/
+
 
 //CODING CHALLENGE
 
@@ -118,8 +118,30 @@ const BMIJohn = massJohn / (heightJohn * heightJohn);
 const markHigherBMI = BMIMark > BMIJohn;
 
 console.log(BMIMark, BMIJohn, markHigherBMI);
+*/
 
+const firstName = 'SuryaDev';
+const job = 'Teacher';
+const birthYear = 1996;
+const year = 2037;
 
+const surya = "I'm " + firstName + ', a ' +  (year - birthYear) + ' years old ' + job + '!';
+console.log(surya);
+
+//Template literals; backticks used to indicate it is a template string
+const suryaNew = `I'm a ${firstName}, a ${year - birthYear} years old ${job}!`;
+console.log(suryaNew);
+
+console.log(`Just a regular string...`);
+
+console.log('String with \n\
+multiple \n\
+lines');
+
+console.log(`String
+with
+multiple
+lines`);
 
 
 
