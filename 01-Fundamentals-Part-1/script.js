@@ -37,7 +37,7 @@ year = 1991;
 console.log(typeof year);
 
 console.log(typeof null); //object which is a bug in javascript
-*/
+
 
 let age = 30;
 age = 31; //mutated a variable
@@ -58,4 +58,35 @@ job = 'teacher';
 lastName = 'gouru';
 console.log(lastName);
 
+*/
 
+//MATH OPERATORS
+const now = 2037;
+const ageSuryaDev = now - 1996;
+const ageBhoomi = now - 2018;
+console.log(ageSuryaDev, ageBhoomi);
+
+console.log(ageSuryaDev*2, ageSuryaDev/10, ageSuryaDev ** 3);
+
+const firstName = 'SuryaDev';
+const lastName = 'Reddy';
+console.log(firstName + ' ' + lastName);
+
+// ASSIGNMENT OPERATORS
+let x = 10 + 5;
+x += 10;
+x *= 4;
+x++;
+x--;
+x--;
+console.log(x);
+
+//COMPARISON OPERATORS
+console.log(ageSuryaDev > ageBhoomi); // > < >= <=
+console.log(ageBhoomi >= 18);
+
+//console actually has access to all the variables that is running in the current browser tab
+
+const isFullAge = ageBhoomi >= 18;
+
+console.log(now - 1996 > now - 2018);
