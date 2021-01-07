@@ -58,7 +58,7 @@ job = 'teacher';
 lastName = 'gouru';
 console.log(lastName);
 
-*/
+
 
 //MATH OPERATORS
 const now = 2037;
@@ -90,3 +90,36 @@ console.log(ageBhoomi >= 18);
 const isFullAge = ageBhoomi >= 18;
 
 console.log(now - 1996 > now - 2018);
+
+const now = 2037;
+const ageSuryaDev = now - 1996;
+const ageBhoomi = now - 2018;
+
+console.log(now - 1996 > now - 2018);
+
+let x,y;
+x = y = 25-10-5;
+console.log(x,y);
+
+const averageAge = (ageSuryaDev + ageBhoomi) / 2;
+console.log(ageSuryaDev , ageBhoomi, averageAge);
+*/
+
+//CODING CHALLENGE
+
+const massMark = 78;
+const heightMark = 1.69;
+
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / heightMark ** 2;
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+const markHigherBMI = BMIMark > BMIJohn;
+
+console.log(BMIMark, BMIJohn, markHigherBMI);
+
+
+
+
+
