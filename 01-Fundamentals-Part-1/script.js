@@ -162,8 +162,6 @@ if (birthYear <= 2000){
 }
 console.log(century);
 
-*/
-
 const massMark = 78;
 const heightMark = 1.69;
 const massJohn = 92;
@@ -183,7 +181,29 @@ if (BMIMark > BMIJohn) {
     console.log(`John's BMI (${BMIJohn}) is higher than Mark's! (${BMIMark})`);
 }
 
+*/
 
+//TYPE CONVERSION
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear);
+console.log(Number(inputYear) + 18);
 
+console.log(Number('SuryaDev'));
+console.log(typeof NaN);
 
+//value is printed white suggests string
+console.log(String(23), 23);
 
+//TYPE COERCION
+console.log('I am' + 23 + ' years old'); //number is type coerced to string
+console.log('I am' + String(23) + ' years old');
+console.log('23' - '10' - 3); //outputs 10 ; string is type coerced to numbers
+console.log('23' * '2'); //outputs 46;
+console.log('23' > '18'); //strings are type coerced to numbers
+
+let n = '1' + 1; //11
+n = n - 1; //11 - 1
+console.log(n); //10
+
+console.log(2 + 3 + 4 + '5'); //95
+console.log('10' - '4' - '3' - 2 + '5'); //15
