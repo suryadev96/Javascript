@@ -216,8 +216,6 @@ if (friends.includes('Peter')) {
     console.log('You have a friend called Peter');
 }
 
-*/
-
 const calcTip = function(bill) {
     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
@@ -231,6 +229,54 @@ console.log(bills, tips);
 const totals = [bills[0] + tips[0] , bills[1] + tips[1], bills[2] + tips[2]];
 
 console.log(bills, tips, totals);
+
+*/
+
+const suryaArray = [
+    'suryadev',
+    'reddy',
+    2037 - 1996,
+    'teacher',
+    ['Micheal', 'Peter', 'Steven']
+];
+
+//5 Properties
+//Object Literal syntax
+const surya = {
+    firstName : 'suryadev',
+    lastName : 'reddy',
+    age : 2037 - 1996,
+    job : 'teacher',
+    friends :  ['Micheal', 'Peter', 'Steven']
+};
+
+console.log(surya);
+
+console.log(surya.lastName);
+console.log(surya['lastName']);
+
+const nameKey = 'Name';
+console.log(surya['first' + nameKey]);
+console.log(surya['last' + nameKey]);
+
+const interestedIn = prompt('What do you want to know about surya? Choose between firstName, lastName, age, job and friends');
+console.log(surya.interestedIn); //undefined as interestedIn is undefined property on object
+
+if (surya[interestedIn]) { 
+    console.log(surya[interestedIn]);
+} else { //undefined is falsy value
+    console.log('Wrong request!');
+}
+
+//Adding new properties to object
+surya.location = 'Bangalore';
+surya['github'] = 'suryadev96';
+console.log(surya);
+
+console.log(`${surya.firstName} has ${surya.friends.length} friends, and his best friend is called ${surya.friends[0]}`);
+
+
+
 
 
 
