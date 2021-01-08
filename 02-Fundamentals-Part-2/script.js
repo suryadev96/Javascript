@@ -82,7 +82,7 @@ console.log(yearsUntilRetirement(1996, 'suryadev'));
 console.log(yearsUntilRetirement(1988, 'Esha'));
 
 //Arrow functions do not get a so called this keyword
-*/
+
 
 function cutFruitPieces(fruit) {
     return fruit * 4;
@@ -97,6 +97,48 @@ function fruitProcessor(apples, oranges) {
 }
 
 console.log(fruitProcessor(2,3));
+
+
+const calcAge = function(birthYear) {
+    return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = calcAge(birthYear);
+    const retirement = 65 - age;
+    if (retirement > 0) {
+        return retirement;
+    }else {
+        return -1; //9999;
+    }
+    return retirement;
+    //return `${firstName} retires in ${retirement} years`;
+}
+
+console.log(yearsUntilRetirement(1996, 'suryadev'));
+console.log(yearsUntilRetirement(1970, 'Mike'));
+*/
+
+const calcAverage = (a,b,c) => (a + b + c) / 3;
+console.log(calcAverage(3, 4, 5));
+
+//Test1
+const scoreDolphins = calcAverage(44, 23, 71);
+const scoreKoalas = calcAverage(65, 54, 49);
+console.log(scoreDolphins, scoreKoalas);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+    if (avgDolphins >= 2 * avgKoalas) {
+        console.log(`Dolphins win 🏆 (${avgDolphins} vs. ${avgKoalas})`);
+    } else if (avgKoalas >= 2 * avgDolphins) {
+        console.log(`Koalas win 🏆 (${avgKoalas} vs. ${avgDolphins})`);
+    } else {
+        console.log('No Team wins...');
+    }
+}
+
+checkWinner(scoreDolphins, scoreKoalas);
+
 
 
 
