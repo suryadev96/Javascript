@@ -37,7 +37,7 @@ const appleOrangeJuice = fruitProcessor(2,4);
 console.log(appleOrangeJuice);
 
 const num = Number('23');
-*/
+
 
 //Function declarations can be called before the declaration
 //This happens because of process called hoisting
@@ -59,6 +59,31 @@ const calcAge2 = function (birthYear) {
 const age2 = calcAge2(1996);
 
 console.log(age1, age2);
+*/
+
+//Function expression
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+};
+
+//Arrow function
+const calcAge3 = birthYear => 2037 - birthYear; //dont need to use return keyword
+const age3 = calcAge3(1996);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear;
+    const retirement = 65 - age;
+    //return retirement;
+    return `${firstName} retires in ${retirement} years`;
+}
+
+console.log(yearsUntilRetirement(1996, 'suryadev'));
+console.log(yearsUntilRetirement(1988, 'Esha'));
+
+//Arrow functions do not get a so called this keyword
+
+
 
 
 
