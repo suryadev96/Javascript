@@ -230,7 +230,6 @@ const totals = [bills[0] + tips[0] , bills[1] + tips[1], bills[2] + tips[2]];
 
 console.log(bills, tips, totals);
 
-*/
 
 const suryaArray = [
     'suryadev',
@@ -274,6 +273,49 @@ surya['github'] = 'suryadev96';
 console.log(surya);
 
 console.log(`${surya.firstName} has ${surya.friends.length} friends, and his best friend is called ${surya.friends[0]}`);
+
+*/
+
+const surya = {
+    firstName : 'suryadev',
+    lastName : 'reddy',
+    birthYear : 1996,
+    job : 'teacher',
+    friends :  ['Micheal', 'Peter', 'Steven'],
+    hasDriverLicense : true,
+
+    //function expression
+    // calcAge : function() {
+    //     //console.log(this);
+    //     return 2037 - this.birthYear;
+    // }
+
+    calcAge : function() {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary : function() {
+        return `${this.firstName} is a ${this.calcAge()}- year old ${this.job} and  he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license`;
+    }
+};
+
+//this is basically the object on which the method is called
+//in other words object calling the method
+
+console.log(surya.calcAge(1996));
+//console.log(surya['calcAge'](1996));
+
+console.log(surya.age);
+console.log(surya.age);
+console.log(surya.age);
+
+console.log(surya.getSummary());
+
+//arrays are also actually objects
+//friends.push('jonas'); //push is a method defined on the arrays object
+
+
 
 
 
