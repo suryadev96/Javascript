@@ -137,7 +137,7 @@ const checkWinner = function (avgDolphins, avgKoalas) {
 }
 
 checkWinner(scoreDolphins, scoreKoalas);
-*/
+
 
 const friend1 = 'Michael';
 const friend2 = 'Steven';
@@ -182,6 +182,43 @@ const age3 = calcAge(years[years.length-1]);
 
 const ages = [calcAge(years[0]), calcAge(years[1]) , calcAge(years[years.length-1])];
 console.log(ages);
+*/
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+//Add elements
+const newLength = friends.push('Jay');
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John');
+console.log(friends);
+
+//Remove elements
+friends.pop(); //Last
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+friends.shift(); //First
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob')); //-1
+
+//uses strict equality check
+friends.push(23);
+console.log(friends.includes('Steven'));
+console.log(friends.includes('Bob'));
+console.log(friends.includes('23'));
+
+if (friends.includes('Peter')) {
+    console.log('You have a friend called Peter');
+}
+
+
+
+
 
 
 
