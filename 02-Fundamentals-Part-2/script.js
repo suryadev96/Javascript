@@ -117,7 +117,6 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
 console.log(yearsUntilRetirement(1996, 'suryadev'));
 console.log(yearsUntilRetirement(1970, 'Mike'));
-*/
 
 const calcAverage = (a,b,c) => (a + b + c) / 3;
 console.log(calcAverage(3, 4, 5));
@@ -138,12 +137,51 @@ const checkWinner = function (avgDolphins, avgKoalas) {
 }
 
 checkWinner(scoreDolphins, scoreKoalas);
+*/
 
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
 
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
 
+const y = new Array(1996, 1984, 2008, 2020);
 
+console.log(friends[0]);
+console.log(friends[2]);
 
+console.log(friends.length);
+console.log(friends[friends.length-1]);
 
+friends[2] = 'Jay';
+console.log(friends);
+
+//we have mutated the array which was defined using const
+//Only primitive values are immutable But an Array is not a primitive value
+
+//This is illegal
+//friends = ['Bob', 'Alice'];
+
+const firstName = 'suryadev';
+const surya = [firstName, 'reddy', 2037 - 1996, 'teacher', friends];
+console.log(surya);
+
+//Exercise
+const calcAge = function(birthYear) {
+    return 2037 - birthYear;
+}
+
+const years = [1996, 1984, 2008, 2020];
+
+console.log(calcAge(years)); //NaN
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length-1]);
+
+const ages = [calcAge(years[0]), calcAge(years[1]) , calcAge(years[years.length-1])];
+console.log(ages);
 
 
 
