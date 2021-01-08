@@ -274,7 +274,7 @@ console.log(surya);
 
 console.log(`${surya.firstName} has ${surya.friends.length} friends, and his best friend is called ${surya.friends[0]}`);
 
-*/
+
 
 const surya = {
     firstName : 'suryadev',
@@ -314,6 +314,39 @@ console.log(surya.getSummary());
 
 //arrays are also actually objects
 //friends.push('jonas'); //push is a method defined on the arrays object
+
+*/
+
+const mark = {
+    fullName : 'Mark miller',
+    mass : 78,
+    height : 1.69,
+    calcBMI : function() {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+};
+
+const john = {
+    fullName : 'John smith',
+    mass : 92,
+    height : 1.95,
+    calcBMI : function() {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+};
+
+mark.calcBMI();
+john.calcBMI();
+console.log(mark.bmi);
+console.log(john.bmi);
+
+if (mark.bmi > john.bmi) {
+    console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`);
+} else {
+    console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`);
+}
 
 
 
