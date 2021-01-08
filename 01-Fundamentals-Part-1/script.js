@@ -181,7 +181,6 @@ if (BMIMark > BMIJohn) {
     console.log(`John's BMI (${BMIJohn}) is higher than Mark's! (${BMIMark})`);
 }
 
-*/
 
 //TYPE CONVERSION
 const inputYear = '1991';
@@ -207,3 +206,31 @@ console.log(n); //10
 
 console.log(2 + 3 + 4 + '5'); //95
 console.log('10' - '4' - '3' - 2 + '5'); //15
+
+*/
+
+//Falsy values are values that are not exactly false but will become false when we try to convert them into a boolean
+//In Javascript, there are only 5 falsy values 
+//5 Falsy values : 0, '', undefined, null, NaN
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('SuryaDev'));
+console.log(Boolean({}));
+console.log(Boolean(''));
+
+//Type coercion to Booleans happens when using logical operators , and in a logical context in if condition
+const money = 0;
+if (money) {
+    console.log("Don't spend it all ;)");
+} else {
+    console.log('You should get a job!');
+}
+
+let height;
+
+if (height) {
+    console.log('YAY! Height is defined!');
+} else {
+    console.log('Height is UNDEFINED');
+}
