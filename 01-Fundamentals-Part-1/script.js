@@ -307,7 +307,7 @@ if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
     console.log('No one wins the trophy');
 }
 
-*/
+
 
 const day = 'monday';
 
@@ -348,3 +348,28 @@ if (day === 'monday') {
 } else {
     console.log('Not a valid day!');
 }
+
+
+
+const age = 23;
+age >= 18 ? console.log('I like to sing') : console.log('I like to eat');
+
+const drink = age >= 18 ? 'wine 🍷' : 'water 💧';
+console.log(drink);
+
+let drink2;
+if (age >= 18){
+    drink2 = 'wine 🍷';
+}else {
+    drink2 = 'water 💧';
+}
+console.log(drink2);
+
+//TERNARY OPERATOR IS AN EXPRESSION WHEREAS IF ELSE IS A STATEMENT
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
+
+*/
+
+const bill = 275;
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+console.log(`The bill was ${bill}, the tip was ${tip} , and the total value ${bill + tip}`);
