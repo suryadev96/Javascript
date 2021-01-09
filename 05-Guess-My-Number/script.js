@@ -17,10 +17,9 @@ console.log(document.querySelector('.guess').value);
 //   console.log(23);
 // };
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 //state variable
 let score = 20;
-document.querySelector('.number').textContent = secretNumber;
 
 //we are attaching the click event handler on the check button
 document.querySelector('.check').addEventListener('click', function () {
@@ -31,6 +30,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '⛔️No number!';
     //When player wins
   } else if (guess === secretNumber) {
+    document.querySelector('.number').textContent = secretNumber;
     document.querySelector('.message').textContent = '🎉 Correct Number!';
     document.querySelector('body').style.backgroundColor = '#60b347';
 
@@ -62,3 +62,18 @@ document.querySelector('.check').addEventListener('click', function () {
 
 //we are just defining the function and we are not calling it
 //Javascript engine calls the function as soon as event happens on the button
+
+//RESETTING FUNCTIONALITY WITH AGAIN BUTTON
+//click handler here is an anonymous handler function
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20);
+
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+});
