@@ -400,8 +400,6 @@ for (let i=0; i < suryaArray.length ; i++) {
     console.log(suryaArray[i], typeof suryaArray[i]);
 }
 
-*/
-
 const suryaArray = [
     'suryadev',
     'reddy',
@@ -421,4 +419,55 @@ for (let excercise = 1; excercise < 4 ; excercise++) {
         console.log(`Lifting weight repetition ${rep} 🏆`);
     }
 }
+
+
+for (let rep=1; rep <= 10 ; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
+
+let rep = 1;
+while (rep <= 10 ) {
+    console.log(`WHILE: Lifting weights repetition ${rep} 🏋️‍♀️`);
+    rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+//while loop does not depend on any counter variable 
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end...');
+}
+
+//if we know how many times u have to iterate => then go for-loop
+*/
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i=0;i<bills.length;i++) {
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
+}
+console.log(bills, tips , totals);
+
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i=0;i<arr.length;i++) {
+        sum += arr[i];
+    }
+    console.log(sum);
+    return sum / arr.length;
+}
+
+calcAverage([2,3,6]);
+
 
