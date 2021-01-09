@@ -315,7 +315,7 @@ console.log(surya.getSummary());
 //arrays are also actually objects
 //friends.push('jonas'); //push is a method defined on the arrays object
 
-*/
+
 
 const mark = {
     fullName : 'Mark miller',
@@ -347,6 +347,19 @@ if (mark.bmi > john.bmi) {
 } else {
     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`);
 }
+
+*/
+
+console.log('Lifting weights repetition 1 🏋️‍♀️');
+console.log('Lifting weights repetition 2 🏋️‍♀️');
+console.log('Lifting weights repetition 3 🏋️‍♀️');
+console.log('Lifting weights repetition 4 🏋️‍♀️');
+console.log('Lifting weights repetition 5 🏋️‍♀️');
+
+for (let rep=1; rep <= 10 ; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
+
 
 
 
