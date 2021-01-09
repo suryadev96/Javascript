@@ -20,6 +20,7 @@ console.log(document.querySelector('.guess').value);
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 //state variable
 let score = 20;
+let highScore = 0;
 
 //we are attaching the click event handler on the check button
 document.querySelector('.check').addEventListener('click', function () {
@@ -37,6 +38,12 @@ document.querySelector('.check').addEventListener('click', function () {
     //CSS styles gets applied INLINE
 
     document.querySelector('.number').style.width = '30rem'; //Note it must be defined in strings
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
+
     //When the guess is too high
   } else if (guess > secretNumber) {
     if (score > 1) {
