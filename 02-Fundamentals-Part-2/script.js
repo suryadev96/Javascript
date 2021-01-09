@@ -348,8 +348,6 @@ if (mark.bmi > john.bmi) {
     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`);
 }
 
-*/
-
 console.log('Lifting weights repetition 1 🏋️‍♀️');
 console.log('Lifting weights repetition 2 🏋️‍♀️');
 console.log('Lifting weights repetition 3 🏋️‍♀️');
@@ -359,13 +357,45 @@ console.log('Lifting weights repetition 5 🏋️‍♀️');
 for (let rep=1; rep <= 10 ; rep++) {
     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
+*/
 
+const suryaArray = [
+    'suryadev',
+    'reddy',
+    2037 - 1996,
+    'teacher',
+    ['Micheal', 'Peter', 'Steven'],
+    true
+];
 
+const types = [];
 
+for (let i=0; i < suryaArray.length ; i++) {
+    console.log(suryaArray[i], typeof suryaArray[i]);
+    //Filling types array
+    //types[i] = typeof suryaArray[i];
+    types.push(typeof suryaArray[i]);
+}
 
+console.log(types);
 
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
 
+for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
 
+//continue and break
+console.log('---- ONLY STRINGS ----');
+for (let i=0; i < suryaArray.length ; i++) {
+    if (typeof suryaArray[i] !== 'string') continue;
+    console.log(suryaArray[i], typeof suryaArray[i]);
+}
 
-
-
+console.log('---BREAK WITH NUMBERS---');
+for (let i=0; i < suryaArray.length ; i++) {
+    if (typeof suryaArray[i] === 'number') break;
+    console.log(suryaArray[i], typeof suryaArray[i]);
+}
