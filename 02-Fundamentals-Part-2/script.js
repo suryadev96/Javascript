@@ -357,7 +357,7 @@ console.log('Lifting weights repetition 5 🏋️‍♀️');
 for (let rep=1; rep <= 10 ; rep++) {
     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
-*/
+
 
 const suryaArray = [
     'suryadev',
@@ -399,3 +399,26 @@ for (let i=0; i < suryaArray.length ; i++) {
     if (typeof suryaArray[i] === 'number') break;
     console.log(suryaArray[i], typeof suryaArray[i]);
 }
+
+*/
+
+const suryaArray = [
+    'suryadev',
+    'reddy',
+    2037 - 1996,
+    'teacher',
+    ['Micheal', 'Peter', 'Steven']
+];
+
+for (let i = suryaArray.length-1; i>=0;i--) {
+    console.log(suryaArray[i]);
+}
+
+for (let excercise = 1; excercise < 4 ; excercise++) {
+    console.log(`-------Starting exercise ${excercise} -----`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Lifting weight repetition ${rep} 🏆`);
+    }
+}
+
