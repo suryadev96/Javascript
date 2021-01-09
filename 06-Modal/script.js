@@ -7,7 +7,6 @@ const btnsOpenModal = document.querySelectorAll('.show-modal');
 console.log(btnsOpenModal);
 
 const openModal = function () {
-  console.log('Button clicked!');
   modal.classList.remove('hidden'); //dont use '.hidden'
   overlay.classList.remove('hidden');
 
@@ -31,3 +30,13 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 btnCloseModal.addEventListener('click', closeModal); //not closeModal()
 
 overlay.addEventListener('click', closeModal);
+
+//KEYBOARD events are global events because they do not happen on any specific element
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
+//information about which key was pressed will be stored in the keydownevent e that is going to be generated.
