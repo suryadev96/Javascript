@@ -48,8 +48,6 @@ const calcTempAltitudeNew = function (t1, t2) {
 const amplitudeNew = calcTempAltitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
 
-*/
-
 const measureKelvin = function () {
   const measurement = {
     type: 'temp',
@@ -88,3 +86,17 @@ const calcTempAltitudeBug = function (t1, t2) {
 };
 const amplitudeBug = calcTempAltitudeBug([3, 5, 1], [9, 4, 5]);
 console.log(amplitudeBug);
+*/
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+const printForecast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}\u00B0C in ${i + 1} days ... `;
+  }
+  console.log('...' + str);
+};
+
+printForecast(data1);
