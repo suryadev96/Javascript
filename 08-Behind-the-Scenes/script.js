@@ -115,7 +115,6 @@ matilda.calcAge(); //this keyword always points to the object calling the method
 const f = surya.calcAge;
 f(); //here in this case this keyword will be undefined ; its a regular function call. not attached to any object
 
-*/
 
 var firstName = 'matilda'; //this creates a property on global window object
 
@@ -167,3 +166,63 @@ var addArrow = (a, b) => {
 addArrow(2, 5, 8);
 
 //arguments keywords do not exist on arrow functions
+
+*/
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: 'surya',
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27; //u can still change the value as the reference value to heap is not changed
+
+console.log('Friend:', friend);
+console.log('Me:', me);
+
+//PRIMITIVES : (Number, String, Boolean, Undefined, Null, Symbol, Bigint)
+//OBJECTS : (Object literal, Arrays, Functions)
+
+//primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+//reference types
+const jessica = {
+  firstName: 'jessica',
+  lastName: 'williams',
+  age: 27,
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage:', marriedJessica);
+
+//marriedJessica = {};
+
+//copying objects
+const jessica2 = {
+  firstName: 'jessica',
+  lastName: 'williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); //it only creates a shallow copy; not a deep clone
+jessicaCopy.lastName = 'Davis';
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage:', jessica2);
+console.log('After marriage:', jessicaCopy);
+
+//both has a family object which points at the same object in the memory as Object.assign() is a shallow copy
