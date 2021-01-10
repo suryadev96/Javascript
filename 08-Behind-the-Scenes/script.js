@@ -80,8 +80,6 @@ console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
 
-*/
-
 console.log(this);
 
 const calcAge = function (birthYear) {
@@ -116,3 +114,56 @@ matilda.calcAge(); //this keyword always points to the object calling the method
 
 const f = surya.calcAge;
 f(); //here in this case this keyword will be undefined ; its a regular function call. not attached to any object
+
+*/
+
+var firstName = 'matilda'; //this creates a property on global window object
+
+const surya = {
+  firstName: 'suryadev',
+  year: 1996,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+
+    // const self = this; //self or that
+    // const isMillenial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    // };
+    // isMillenial(); //regular function call; this keyword is undefined
+
+    //solution 2
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial(); //regular function call; this keyword is undefined
+  },
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+surya.greet(); //Hey undefined as arrow functions do not get this keyword
+surya.calcAge();
+//Hey matilda as this in arrow function points to parent score which is window object and since firstName is property on window object
+
+//Arrow function uses this keyword of its parent scope
+//regular function don't use this keyword of the parent scope
+
+//arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 8);
+
+//arguments keywords do not exist on arrow functions
