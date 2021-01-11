@@ -45,6 +45,22 @@ const restaurant = {
   },
 };
 
+////LOOPING ARRAYS: FOR-OF LOOP
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1} : ${el}`);
+}
+
+console.log(menu.entries());
+console.log(...menu.entries());
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -63,6 +79,8 @@ Suppose we get data from a web service about a certain game (below). In this cha
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 GOOD LUCK 😀
 */
+
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -134,6 +152,8 @@ printGoals(...game.scored);
 //7.
 team1 < team2 && console.log('Team1 is more likely to win');
 team1 > team2 && console.log('Team2 is more likely to win');
+
+*/
 /*
 
 ////NULLISH COALESCING OPERATOR
