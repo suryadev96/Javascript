@@ -34,8 +34,59 @@ const restaurant = {
       will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
+//////SPREAD OPERATORS
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+//copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//Tterables : strings, arrays, maps, sets NOT objects
+const str = 'surya';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str);
+
+//real world example
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt("Let's make pasta! Ingredient 2?"),
+//   prompt("Let's make pasta! Ingredient 3?"),
+// ];
+// console.log(ingredients);
+
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+// restaurant.orderPasta(...ingredients);
+
+//spread operators can be used only when creating an array or passing arguments into function
+
+//objects
+const newRestaurant = { ...restaurant, founder: 'suryadev', foundedIn: 1998 };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+/*
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Kadapa',
@@ -78,7 +129,6 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
-/*
 
 //ARRAY DESTRUCTURING IS AN ES6 FEATURE.
 //UNPACKING VALUES FROM AN ARRAY OR AN OBJECT INTO SEPERATE VARIABLES
