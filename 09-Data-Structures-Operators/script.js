@@ -45,6 +45,17 @@ const restaurant = {
   },
 };
 
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10; //wont work if restaurant.numGuests = 0
+console.log(guests);
+
+//Nullish coalescing operator works on the concept of nullish values instead of falsy values
+//Nullish : null and undefined (Not 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+/*
+////////////////////////////////////
+// Short circuiting (&& and ||)
 //use any datatype, return any datatype , short-circuting
 console.log('------OR------');
 console.log(3 || 'Surya'); //3
@@ -76,7 +87,6 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 //OR operator is used to set default values
 //AND operator is used to evaluate second expression if first one exists
-/*
 
 //SPREAD, because on RIGHT SIDE
 
