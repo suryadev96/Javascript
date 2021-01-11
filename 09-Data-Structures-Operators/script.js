@@ -45,6 +45,39 @@ const restaurant = {
   },
 };
 
+//use any datatype, return any datatype , short-circuting
+console.log('------OR------');
+console.log(3 || 'Surya'); //3
+console.log('' || 'surya'); //surya
+console.log(true || 0); //true
+console.log(undefined || null); //null
+
+console.log(undefined || 0 || '' || 'Hello' || 2 || null); //'Hello' because first truthy value
+//OR operator => if first value is truthy vaue => then it returns first value
+
+//restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10; //wont work if restaurant.numGuests = 0
+console.log(guests2);
+
+console.log('------AND-----');
+console.log(0 && 'surya'); //returns the first falsy value
+console.log(7 && 'surya'); //returns the last truthy value if all values are
+
+console.log('Hello' && 23 && null && 'surya');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+//OR operator is used to set default values
+//AND operator is used to evaluate second expression if first one exists
+/*
+
 //SPREAD, because on RIGHT SIDE
 
 //1. Destructuring
@@ -85,7 +118,7 @@ restaurant.orderPizza('mushrooms');
 
 //values seperated by commas => spread
 //variables seperated by commas => Rest
-/*
+
 
 //////SPREAD OPERATORS
 const arr = [7, 8, 9];
