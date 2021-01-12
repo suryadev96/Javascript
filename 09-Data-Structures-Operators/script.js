@@ -53,6 +53,42 @@ const restaurant = {
   },
 };
 
+///////MAPS
+/*
+Difference between maps and objects are in objects type of key is always string; whereas in maps it can be anything
+*/
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+//chaining
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 12)
+  .set(true, 'We are Open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+console.log(rest.size);
+rest.clear();
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest.get(arr)); //2 arrays are not the same object
+////////SETS
+
+/*
 const ordersSet = new Set([
   'Pasta',
   'Pizza',
