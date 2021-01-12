@@ -53,10 +53,48 @@ const restaurant = {
   },
 };
 
-///////MAPS
+//Array of Arrays
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'JAVA'],
+  [3, 'JAVASCRIPT'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+//convert object to map
+console.log(Object.entries(openingHours)); //returns array of arrays
+const hoursMap = new Map(Object.entries(openingHours));
+
+//Iterating maps
+
+//QUiz App
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`Option ${key}: ${value}`);
+  }
+}
+//const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+//convert map to array
+console.log([...question]);
+console.log(question.entries());
+console.log([...question.keys()]); //gives MapIterator ; spread them and put in array
+console.log([...question.values()]);
+///////MAPS: FUNDAMENTALS
 /*
 Difference between maps and objects are in objects type of key is always string; whereas in maps it can be anything
 */
+
+/*
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
 rest.set(1, 'Firenze, Italy');
@@ -86,6 +124,7 @@ const arr = [1, 2];
 rest.set(arr, 'Test');
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest.get(arr)); //2 arrays are not the same object
+
 ////////SETS
 
 /*
