@@ -96,7 +96,7 @@ document.body.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
 
-*/
+
 
 const greet = function (greeting) {
   return function (name) {
@@ -114,3 +114,56 @@ greet('Hello')('suryadev');
 //challenge
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('suryadev');
+*/
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'suryadev');
+lufthansa.book(635, 'John smith');
+console.log(lufthansa);
+
+const eurowings = {
+  name: 'Eurrowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+//Does not work
+//book(23, 'Sarah Williams'); //regular function call; this keyword is undefined
+
+//we did not call book method;
+//call method inturn call book method with this keyword pointing to eurowings
+book.call(eurowings, 23, 'Sarah Williams'); //if u do like here; this keyword in book function points to eurowings
+console.log(eurowings);
+
+//Explicitly setting this keyword
+book.call(lufthansa, 238, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+
+//Apply method
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData); //spread the arguments
