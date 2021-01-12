@@ -53,6 +53,47 @@ const restaurant = {
   },
 };
 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+console.log(airline.slice(4)); //substring
+console.log(airline.slice(4, 7)); //end is exclusive ; length = 7 - 4
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  //B and E is middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat 😆');
+  } else {
+    console.log('You got lucky 😎');
+  }
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+//when we call a method on a string; javascript converts string primitive to string object ; this process is boxing
+
+console.log(new String('suryadev'));
+console.log(typeof new String('suryadev'));
+console.log(typeof new String('suryadev').slice(1)); //converts it back to primitive again
 ///////////////////////////////////////
 // Coding Challenge #3
 /* 
@@ -67,6 +108,7 @@ GOOD LUCK 😀
 
 */
 
+/*
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
   [36, '🔁 Substitution'],
@@ -103,6 +145,7 @@ for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min} : ${event}`);
 }
+*/
 /*
 //Array of Arrays
 const question = new Map([
