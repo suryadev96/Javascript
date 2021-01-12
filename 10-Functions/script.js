@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 const bookings = [];
 
 const createBooking = function (
@@ -25,3 +26,42 @@ createBooking('LH123', 2);
 createBooking('LH123', 5);
 
 createBooking('LH123', undefined, 1000);
+*/
+
+const flight = 'LH234';
+const surya = {
+  name: 'suryadev reddy',
+  passport: 24739479284,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH999';
+  passenger.name = 'Mr.' + passenger.name;
+
+  if (passenger.passport === 24739479284) {
+    alert('Checked In');
+  } else {
+    alert('Wrong passport!');
+  }
+};
+
+checkIn(flight, surya);
+console.log(flight); //pass by value where value is primitive value
+console.log(surya); //pass by value where value is reference to the object in heap
+
+//is same as doing
+const flightNum = flight;
+const passenger = surya;
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 1000000000);
+};
+
+newPassport(surya);
+checkIn(flight, surya);
+
+//javascript does not have passing by reference
+//even though it looks like passing by reference
+//we are passing the value wherein value itself is reference to the actual object stored in heap
+
+//where in C/C++ you can pass reference to any value instead of value itself
