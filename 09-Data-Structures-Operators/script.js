@@ -53,6 +53,39 @@ const restaurant = {
   },
 };
 
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotta',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+
+console.log(new Set('suryadev'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risott');
+//ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
+}
+
+//Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(new Set('suryadevreddy').size);
+//elements are unique and order of elements are irrelevant
+
 ///////////////////////////////////////
 // Coding Challenge #2
 /* 
@@ -74,6 +107,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -135,7 +169,6 @@ for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 console.log(scorers);
-/*
 
 //LOOPOING OBJECTS: KEYS, VALUES AND ENTRIES
 
@@ -161,7 +194,6 @@ for (const [day, { open, close }] of entries) {
   console.log(`on ${day} we open at ${open} and close at ${close}`);
 }
 
-/*
 
 //OPTIONAL CHAINING
 if (restaurant.openingHours && restaurant.openingHours.mon)
@@ -191,7 +223,8 @@ console.log(users[0]?.name ?? 'User array empty');
 
 if (users.length > 0) console.log(users[0].name);
 else console.log('user array empty');
-/*
+
+
 ////LOOPING ARRAYS: FOR-OF LOOP
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
