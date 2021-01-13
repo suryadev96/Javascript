@@ -319,7 +319,7 @@ console.log(isPrivate);
 
 //But IIFE can still be used if u want to execute a function only once;
 
-*/
+
 
 //CLOSURE is not a feature that we explicitly use. we dont create closures manually like arrays, functions
 //It happens automatically in certain situations. we should recognize those situations
@@ -346,3 +346,52 @@ booker();
 
 console.dir(booker);
 //[[]] means internal property which cannot be accessed through code
+
+*/
+
+//closure examples
+
+//Example 1
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+console.dir(f);
+
+//Re-assigning f function
+h();
+f();
+console.dir(f);
+
+//Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  //the call back function is created in the execution context of boardPassengers function
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+// setTimeout(function () {
+//   console.log('TIMER');
+// }, 1000);
+
+const perGroup = 1000; //closure has priority over scope chain
+boardPassengers(180, 3);
