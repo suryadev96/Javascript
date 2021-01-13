@@ -296,7 +296,7 @@ document
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string'); //first argument is this keyword
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
-*/
+
 
 const runOnce = function () {
   console.log('This will never run again');
@@ -318,3 +318,31 @@ console.log(isPrivate);
 //they are only function scoped
 
 //But IIFE can still be used if u want to execute a function only once;
+
+*/
+
+//CLOSURE is not a feature that we explicitly use. we dont create closures manually like arrays, functions
+//It happens automatically in certain situations. we should recognize those situations
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+//closure makes a booker function remember all variables that existed at the function's birthplace
+//A function always has access to the variable environment of the execution context in which it was created even after that execution context is gone
+
+//closure has priority over the scope chain while looking for variables
+//closure can be thouht of as a backpack that a function carries around. This backpack has all the variables that were present
+//in the envionrment where the function was created
+
+console.dir(booker);
+//[[]] means internal property which cannot be accessed through code
