@@ -253,6 +253,8 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 GOOD LUCK 😀
 */
+
+/*
 const poll = {
   question: 'What is your favourite programming language?',
   options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
@@ -290,6 +292,29 @@ document
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
 //testing with input data
+//call  binds the displayresults function to this keyword and call the function with arguments passed
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string'); //first argument is this keyword
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+*/
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+//we trick javascript to think this declaration to be expression by wrapping paranthesis around
+//IIFE - Immediately Invoked function expression
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+console.log(isPrivate);
+
+(() => console.log('This will ALSO never run again'))();
+
+//IIFE was previously used in ES5 for creating scope for var variables as u know var variables are not block scoped
+//they are only function scoped
+
+//But IIFE can still be used if u want to execute a function only once;
