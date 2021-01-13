@@ -1,5 +1,6 @@
 ////////////////////////////////////////////////
 
+/*
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
 //SLICE
@@ -31,3 +32,35 @@ console.log([...arr, ...arr2]);
 
 //JOIN
 console.log(letters.join(' - '));
+*/
+
+//positive - deposits
+//negative - withdrawals
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+//forEach is higher order function which needs a callback to tell what needs to be done
+//in each iteration it will call this callback function and passes the current element as argument
+console.log('------ FOREACH ------');
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+  }
+});
+
+//continue and break do not work in foreach loops
+
+// const f = function (a, b, c) {
+//   console.log(a, b, c);
+// };
+// f(3);
