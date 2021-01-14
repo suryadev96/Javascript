@@ -62,10 +62,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 //dont work on global variables
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     //creating html template
@@ -219,6 +221,13 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 //console.log(containerMovements.innerHTML);
@@ -525,7 +534,7 @@ console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
 
-*/
+
 
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
@@ -553,3 +562,30 @@ const overalBalance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overalBalance2);
+
+*/
+
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//console.log(movements.sort()); //sort method works based on strings
+
+//return < 0, A, B [Keep order]
+//return > 0, B, A [switch order]
+//Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+//Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (b > a) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
