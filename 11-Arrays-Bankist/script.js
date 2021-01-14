@@ -192,7 +192,7 @@ TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
 TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-*/
+
 const checkDogs = function (dogsJulia, dogsKate) {
   const dogsJuliaCorrected = dogsJulia.slice();
   dogsJuliaCorrected.splice(0, 1); //remove first
@@ -211,3 +211,31 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 //checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+*/
+
+const euroToUsd = 1.1;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * euroToUsd;
+// });
+
+const movementsUSD = movements.map(mov => mov * euroToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDFor = [];
+for (const mov of movements) {
+  movementsUSDFor.push(mov * euroToUsd);
+}
+console.log(movementsUSDFor);
+
+const movementsDescription = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescription);
