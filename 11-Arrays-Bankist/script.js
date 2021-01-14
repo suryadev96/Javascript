@@ -60,6 +60,31 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+//dont work on global variables
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    //creating html template
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>
+  `;
+
+    //attach back html into the container
+    containerMovements.insertAdjacentHTML('afterbegin', html); //'beforeend'
+  });
+};
+displayMovements(account1.movements);
+//console.log(containerMovements.innerHTML);
+
 ////////////////////////////////////////////////
 
 /*
