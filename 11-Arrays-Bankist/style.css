@@ -201,6 +201,14 @@ nav {
   background-image: linear-gradient(to top left, #ffb003, #ffcb03);
 }
 
+.operation--loan {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.operation--close {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
 h2 {
   margin-bottom: 1.5rem;
   font-size: 1.7rem;
@@ -213,6 +221,14 @@ h2 {
   grid-template-columns: 2.5fr 2.5fr 1fr;
   grid-template-rows: auto;
   gap: 0.4rem 1rem;
+}
+
+/* Exceptions for loan */
+.form.form--loan {
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+.form__label--loan {
+  grid-row: 2;
 }
 
 .form__input {
