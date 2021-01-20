@@ -330,7 +330,7 @@ console.log((2.7).toFixed(3));
 console.log((2.345).toFixed(2));
 console.log(+(2.345).toFixed(2));
 
-*/
+
 
 console.log(5 % 2);
 console.log(8 % 3);
@@ -349,3 +349,37 @@ labelBalance.addEventListener('click', function () {
     }
   });
 });
+
+*/
+
+//64 bits; 53 used to store the digits ; rest are storing position of decimal point and the sign
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(4567898765434567898765445678n);
+console.log(BigInt(4567898765));
+//console.log(Math.sqrt(16n));
+
+//Operations
+console.log(10000n + 10000n);
+console.log(345665432345678998754323456767876n * 1000000n);
+
+const huge = 234567876545678n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+//Exceptions where it works with mix of primitive types
+console.log(20n > 15);
+console.log(20n === 20); //does not do type coersion
+console.log(typeof 20n);
+console.log(20n == '20');
+
+console.log(huge + ' is REALLY  big!!!');
+
+//Divisions
+console.log(10n / 3n);
+console.log(10 / 3);
