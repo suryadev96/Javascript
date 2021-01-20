@@ -350,7 +350,6 @@ labelBalance.addEventListener('click', function () {
   });
 });
 
-*/
 
 //64 bits; 53 used to store the digits ; rest are storing position of decimal point and the sign
 console.log(2 ** 53 - 1);
@@ -383,3 +382,45 @@ console.log(huge + ' is REALLY  big!!!');
 //Divisions
 console.log(10n / 3n);
 console.log(10 / 3);
+
+
+
+//Create a Date
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Wed Jan 20 2021 13:30:2'));
+console.log(new Date('January 20, 2021'));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(2037, 10, 31, 15, 23, 5));
+console.log(new Date(2037, 10, 33));
+
+//Unix time : January 1, 1970
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+//Dates are another type of objects that have their own methods like maps, strings and arrays
+
+*/
+
+//Working with Dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142237180000));
+
+console.log(Date.now()); //current timestamp
+
+future.setFullYear(2040);
+console.log(future);
