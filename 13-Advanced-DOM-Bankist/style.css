@@ -30,11 +30,17 @@ body {
   background-color: #f3f3f3;
 }
 
+.btn--text {
+}
+
 /* NAVIGATION */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 9rem;
+  width: 100%;
+  padding: 0 6rem;
 }
 
 .nav__logo {
@@ -76,4 +82,35 @@ body {
 
 /* HEADER */
 .header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__title {
+  flex: 1;
+  max-width: 115rem;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  row-gap: 3rem;
+  align-content: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 5.5rem;
+  line-height: 1.35;
+}
+
+h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.header__img {
+  width: 100%;
+  grid-column: 2 / 3;
+  grid-row: 1 / span 4;
+  transform: translateY(-6rem);
 }
