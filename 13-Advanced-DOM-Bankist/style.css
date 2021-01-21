@@ -70,7 +70,7 @@ body {
 }
 
 .lazy-img {
-  //filter: blur(20px);
+  filter: blur(20px);
 }
 
 .btn {
@@ -121,6 +121,7 @@ body {
   color: inherit;
   text-decoration: none;
   display: block;
+  transition: all 0.3s;
 }
 
 .nav__link--btn:link,
