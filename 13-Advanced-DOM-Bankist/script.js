@@ -139,6 +139,17 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 
 nav.addEventListener('mouseout', handleHover.bind(1));
 
+//Sticky Navigation
+const intialCords = section1.getBoundingClientRect();
+
+//scroll event is not good as it triggers so many events on DOM
+window.addEventListener('scroll', function (e) {
+  console.log(window.scrollY);
+
+  if (window.scrollY > intialCords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 
