@@ -266,3 +266,36 @@ document.querySelector('.nav').addEventListener(
 //the third parameter is useCapture where events are handled in capture phase rather than in bubbling phase
 //Event delegation is useful in bubbling phase
 */
+
+const h1 = document.querySelector('h1');
+
+//Going downward: child
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children); //direct children elements
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'orangered';
+
+//Going upwards: parents
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+//selects closest header to the h1 element
+h1.closest('.header').style.background = 'var(--gradient-secondary)';
+
+h1.closest('h1').style.background = 'var(--gradient-primary)';
+
+//querySelector finds the children no mater how deep in dom tree
+//closest finds the parent no matter how far in dom tree
+
+//Going sideways
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+//All siblings
+console.log(h1.parentElement.children);
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) {
+    el.style.transform = 'scale(0.5)';
+  }
+});
