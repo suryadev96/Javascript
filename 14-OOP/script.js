@@ -122,8 +122,8 @@ bmw.accelerate();
 //const personCl = class {};
 
 class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
@@ -135,11 +135,27 @@ class PersonCl {
   greet() {
     console.log(`Hey ${this.firstName}`);
   }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  //set a property that already exists
+  //when u need a validation when setting a property on a object
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
 }
 
-const surya = new PersonCl('Suryadev', 1996);
+const surya = new PersonCl('Surya dev', 1996);
 console.log(surya);
 surya.calcAge();
+console.log(surya.age);
 
 console.log(surya.__proto__ === PersonCl.prototype);
 
@@ -151,3 +167,22 @@ surya.greet();
 //1. Classes are not hoisted ; function declarations can be used before declaring them
 //2. Class are first-class citizens ; because classes are just special kind of functions behind the scenes
 //3. Classes are executed in strict mode
+
+const account = {
+  owner: 'suryadev',
+  movements: [200, 530, 120, 300],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+console.log(account.latest);
+
+account.latest = 50;
+
+console.log(account.movements);
