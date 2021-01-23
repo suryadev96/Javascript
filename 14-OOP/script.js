@@ -475,33 +475,42 @@ jay.calcAge();
 
 //////////////////////
 //Another Class Example
+
+//Public fields
+//Private fields
+//Public methods
+//Private methods
+
 class Account {
+  //Public fields (instances)
+  locale = navigator.language;
+
+  //Private fields
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     //protected properties
-    this.pin = pin;
-    this._movements = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
+    //this._movements = [];
+    //this.locale = navigator.language;
 
     console.log(`Thanks for opening an account ${owner}`);
   }
 
   //public interface
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
     this.deposit(-val);
-  }
-
-  _approveLoan(val) {
-    return true;
   }
 
   requestLoan(val) {
@@ -509,6 +518,15 @@ class Account {
       this.deposit(val);
       console.log(`Loan approved!`);
     }
+  }
+
+  //private methods
+  _approveLoan(val) {
+    return true;
+  }
+
+  static helper() {
+    console.log('Helper!');
   }
 }
 
@@ -526,4 +544,7 @@ console.log(acc1.getMovements());
 //acc1.approveLoan(1000); //should not be used; data encapsulation and data privacy
 
 console.log(acc1);
-console.log(acc1.pin);
+
+Account.helper();
+
+//console.log(acc1.#movements);
