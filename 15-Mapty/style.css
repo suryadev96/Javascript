@@ -174,3 +174,8 @@ body {
 }
 
 /* MAP */
+#map {
+  flex: 1;
+  height: 100%;
+  background-color: var(--color-light--1);
+}
