@@ -92,6 +92,7 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 GOOD LUCK 😀
 */
 
+/*
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -114,3 +115,39 @@ bmw.accelerate();
 bmw.accelerate();
 bmw.brake();
 bmw.accelerate();
+*/
+
+//ES6 Classes are just syntactical sugar over prototypal inheritance
+//Class Expression
+//const personCl = class {};
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  //Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+const surya = new PersonCl('Suryadev', 1996);
+console.log(surya);
+surya.calcAge();
+
+console.log(surya.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+surya.greet();
+
+//1. Classes are not hoisted ; function declarations can be used before declaring them
+//2. Class are first-class citizens ; because classes are just special kind of functions behind the scenes
+//3. Classes are executed in strict mode
