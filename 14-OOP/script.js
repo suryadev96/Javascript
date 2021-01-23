@@ -1,6 +1,5 @@
 'use strict';
 
-/*
 const Person = function (firstName, birthYear) {
   //Instance Properties
   this.firstName = firstName;
@@ -31,6 +30,13 @@ console.log(matilda, jack);
 
 console.log(surya instanceof Person);
 //console.log(jay instanceof Person);
+
+Person.hey = function () {
+  console.log('Hey there 👋');
+  console.log(this); //constructor function
+};
+
+//surya.hey(); // it is a static method and cannot be called on objects
 
 //Prototypes
 console.log(Person.prototype);
@@ -75,7 +81,6 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.dir(h1); //HTMLHeadingElement -> HTMLElement -> Element -> Node -> EventTarget -> Object
 console.dir(x => x + 1); //function Prototype
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -127,6 +132,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  //Instance methods
   //Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -150,19 +156,27 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  //static method
+  static hey() {
+    console.log('Hey there 👋');
+    console.log(this);
+  }
 }
 
-const surya = new PersonCl('Surya dev', 1996);
-console.log(surya);
-surya.calcAge();
-console.log(surya.age);
+const suryan = new PersonCl('Surya dev', 1996);
+console.log(suryan);
+suryan.calcAge();
+console.log(suryan.age);
 
-console.log(surya.__proto__ === PersonCl.prototype);
+console.log(suryan.__proto__ === PersonCl.prototype);
 
 // PersonCl.prototype.greet = function () {
 //   console.log(`Hey ${this.firstName}`);
 // };
-surya.greet();
+suryan.greet();
+
+PersonCl.hey();
 
 //1. Classes are not hoisted ; function declarations can be used before declaring them
 //2. Class are first-class citizens ; because classes are just special kind of functions behind the scenes
@@ -186,3 +200,10 @@ console.log(account.latest);
 account.latest = 50;
 
 console.log(account.movements);
+
+//Static methods; these are not attached to prototype but rather on constructor itself
+console.log(Array.from(document.querySelectorAll('h1')));
+
+//console.log([1, 2, 3].from());
+
+console.log(Number.parseFloat(12));
