@@ -54,3 +54,23 @@ console.log(surya.species, matilda.species);
 
 console.log(surya.hasOwnProperty('firstName'));
 console.log(surya.hasOwnProperty('species'));
+
+console.log(surya.__proto__);
+console.log(surya.__proto__.__proto__);
+console.log(surya.__proto__.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+
+const arr = [3, 4, 6, 8, 9, 6, 9, 8]; // new Array === []
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique());
+
+const h1 = document.querySelector('h1');
+console.dir(h1); //HTMLHeadingElement -> HTMLElement -> Element -> Node -> EventTarget -> Object
+console.dir(x => x + 1); //function Prototype
