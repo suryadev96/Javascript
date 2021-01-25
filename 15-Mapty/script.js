@@ -336,3 +336,20 @@ class App {
 }
 
 const app = new App();
+
+/*
+Additional featuers: CHALLENGES
+1. Edit workout
+2. Delete workout
+3. Delete all workouts
+4. sort workout by a certain field (distance)
+5. Re build Running and Cyclling objects coming from local storage
+6. More realistic errors and confirmation messages
+
+//HARD ones
+7. Ability to position the map to show all workouts
+8. Ability to draw lines and shapes instead of just points
+
+9. Geocode location from coordinates ("Run in Kadapa, AP") ; 3 Party API gives description of location and not just raw coordinates
+10. Display weather data for workout time and place
+*/
