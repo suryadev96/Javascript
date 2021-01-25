@@ -21,21 +21,6 @@ c. Form to input distance, time, pace, steps/minute
 */
 'use strict';
 
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
 const containerWorkouts = document.querySelector('.workouts');
 const form = document.querySelector('.form');
 const inputType = document.querySelector('.form__input--type');
@@ -47,6 +32,7 @@ const inputElevation = document.querySelector('.form__input--elevation');
 class Workout {
   date = new Date();
   id = (Date.now() + '').slice(-10);
+  clicks = 0;
 
   constructor(coords, distance, duration) {
     this.coords = coords; //[lat,lng]
@@ -60,6 +46,10 @@ class Workout {
     this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
       months[this.date.getMonth()]
     } ${this.date.getDate()}`;
+  }
+
+  click() {
+    this.clicks++;
   }
 }
 
@@ -104,6 +94,7 @@ class Cycling extends Workout {
 class App {
   //private fields; available on all instances
   #map;
+  #mapZoomLevel = 13;
   #mapEvent;
   #workouts = [];
 
@@ -111,6 +102,7 @@ class App {
     this._getPosition();
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
   _getPosition() {
@@ -130,7 +122,7 @@ class App {
 
     const coords = [latitude, longitude];
 
-    this.#map = L.map('map').setView(coords, 13); //second parameter is zoom level
+    this.#map = L.map('map').setView(coords, this.#mapZoomLevel); //second parameter is zoom level
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       attribution:
@@ -153,7 +145,7 @@ class App {
       '';
     form.style.display = 'none';
     form.classList.add('hidden'); //this will basically make the elements slide up
-    setTimeout(() => (form.style.distance = 'grid'), 1000);
+    setTimeout(() => (form.style.display = 'grid'), 1000);
   }
 
   _toggleElevationField() {
@@ -202,7 +194,6 @@ class App {
 
     //Add new object to workout array
     this.#workouts.push(workout);
-    console.log(this.#workouts);
 
     //Render workout on map as marker
     this._renderWorkoutMarker(workout);
@@ -282,6 +273,26 @@ class App {
     }
 
     form.insertAdjacentHTML('afterend', html);
+  }
+
+  _moveToPopup(e) {
+    const workoutEl = e.target.closest('.workout');
+    console.log(workoutEl);
+
+    if (!workoutEl) return;
+
+    const workout = this.#workouts.find(
+      work => work.id === workoutEl.dataset.id
+    );
+    console.log(workout);
+
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: { duration: 1 },
+    });
+
+    //using the public interface
+    workout.click();
   }
 }
 
