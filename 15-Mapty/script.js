@@ -99,7 +99,13 @@ class App {
   #workouts = [];
 
   constructor() {
+    //Get User's position
     this._getPosition();
+
+    //Get data from Local storage
+    this._getLocalStorage();
+
+    //Attach event handlers
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
@@ -131,6 +137,10 @@ class App {
 
     //Handling clicks on map
     this.#map.on('click', this._showForm.bind(this));
+
+    this.#workouts.forEach(work => {
+      this._renderWorkoutMarker(work);
+    });
   }
 
   _showForm(mapE) {
@@ -203,6 +213,9 @@ class App {
 
     //Hide fomr + Clear input fields
     this._hideForm();
+
+    //set local storage to all workouts
+    this._setLocalStorage();
   }
 
   _renderWorkoutMarker(workout) {
@@ -292,7 +305,33 @@ class App {
     });
 
     //using the public interface
-    workout.click();
+    //workout.click(); // not going to work when retrieved from local storage as prototype chain is lost
+  }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+    console.log(data);
+
+    //The problem here is after converting back to objects. we have lost the entire prototype chain;
+    //They are just regular objects now
+
+    if (!data) return;
+
+    this.#workouts = data;
+
+    this.#workouts.forEach(work => {
+      this._renderWorkout(work);
+      //this._renderWorkoutMarker(work); // not going to work as at this point of time map has not yet loaded
+    });
+  }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload(); //reloading the page
   }
 }
 
