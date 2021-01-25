@@ -3,23 +3,9 @@ const countriesContainer = document.querySelector('.countries');
 
 //////////////////////////////////////////
 
-const getCountryData = function (country) {
-  const request = new XMLHttpRequest();
-  request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
-  request.send();
-
-  request.addEventListener('load', function () {
-    console.log(this.responseText);
-
-    let [data, other] = JSON.parse(this.responseText);
-    console.log(data);
-
-    if (country === 'india') {
-      data = other;
-    }
-
-    const html = `
-    <article class="country">
+const renderCountry = function (data, className = '') {
+  const html = `
+    <article class="country ${className}">
         <img class="country__img" src="${data.flag}"/>
         <div class="country__data">
             <h3 class="country__name">${data.name}</h3>
@@ -34,16 +20,57 @@ const getCountryData = function (country) {
         </div>
     </article>
   `;
-    countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+const getCountryAndNeighbour = function (country) {
+  // AJAX call country 1
+  const request = new XMLHttpRequest();
+  request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
+  request.send();
+
+  request.addEventListener('load', function () {
+    console.log(this.responseText);
+
+    const [data] = JSON.parse(this.responseText);
+    console.log(data);
+
+    //Render Country 1
+    renderCountry(data);
+
+    //Get Neighbour country
+    const [neighbour] = data.borders;
+
+    if (!neighbour) return;
+
+    //AJAX call Country 2
+    const request2 = new XMLHttpRequest();
+    request2.open('GET', `https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+    request2.send();
+
+    request2.addEventListener('load', function () {
+      console.log(this.responseText);
+      const data2 = JSON.parse(this.responseText);
+      console.log(data2);
+
+      renderCountry(data2, 'neighbour');
+    });
   });
 };
 
-getCountryData('usa');
-getCountryData('portugal');
-getCountryData('india');
-getCountryData('germany');
-getCountryData('maldives');
-getCountryData('uk');
-getCountryData('china');
-getCountryData('japan');
+getCountryAndNeighbour('usa');
+
+// CALLBACK HELL (Hard to maintain and difficult to reason about)
+setTimeout(() => {
+  console.log('1 second passed');
+  setTimeout(() => {
+    console.log('2 second passed');
+    setTimeout(() => {
+      console.log('3 second passed');
+      setTimeout(() => {
+        console.log('4 second passed');
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
