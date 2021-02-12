@@ -96,4 +96,6 @@ module.exports = () => { console.log('bar'); };
 The foo variable is ignored
 
 https://www.sitepoint.com/understanding-module-exports-exports-node-js/
+
+In Node.js versions which support ESM, the runtime will not search for extensions, but it will resolve modules from node_modules by name. For example import 'lodash' could resolve to ./node_modules/lodash/index.mjs, without you needing to know that the extension of index.mjs
 */
