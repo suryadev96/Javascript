@@ -25,6 +25,7 @@ add('apples', 4);
 console.log(cart);
 */
 
+/*
 //The purpose of IIFE is to create scope and return the data only once
 const ShoppingCart2 = (function () {
   const cart = {};
@@ -51,3 +52,48 @@ const ShoppingCart2 = (function () {
 ShoppingCart2.addToCart('apple', 4);
 ShoppingCart2.addToCart('pizza', 2);
 console.log(ShoppingCart2);
+*/
+
+import { addToCart } from './test.js';
+
+console.log(addToCart);
+
+/*
+common js module system in node js
+
+const getName = () => { return "suryadev"}
+exports.getName = getName;
+
+
+index.js file
+
+const user = require('./user');
+console.log(`User: ${user.getName()});
+
+//exporting default value
+class User {
+    constructor(name, age, email){
+        this.name = name;
+        this.age = age;
+        this.email = email; 
+    }
+
+    getUserStats(){
+        return `Name: {this.name} Age: ${this.age} Email: ${this.email}`
+    }
+}
+module.exports = User;
+
+index.js
+const User = require('./user');
+const jim = new User('Jim', 37, 'jim@example.com');
+
+
+both module.exports and exports point to same object
+exports.foo = 'foo';
+module.exports = () => { console.log('bar'); };
+
+The foo variable is ignored
+
+https://www.sitepoint.com/understanding-module-exports-exports-node-js/
+*/

@@ -28,3 +28,5 @@ export default function (product, quantity) {
   cart.push({ product, quantity });
   console.log(`${quantity} ${product} added to the cart`);
 }
+
+//Naming of default export can be anything as there is only 1 default export per module
